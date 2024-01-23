@@ -15,36 +15,72 @@
  
     <link rel="stylesheet" href="style.css" />
     
-    <title>Dogzilli's - Vcard</title>
+    <title>dogzillis - Vcard</title>
 </head>
  
 <body>
-  <div class="mobile-container">
-  <header>
-    <section class="hero-banner">
-      <div class="logo-wrapper">
-        <img src="https://assets.codepen.io/6060109/2560px-Adidas_Logo+1.png" alt="Adidas logo.">
+    <div class="mobile-container">
+        <header>
+          <section class="hero-banner">
+            <div class="logo-wrapper">
+              <img src="assets/logo.png" alt="Adidas logo." style="height: 150px;">
+            </div>
+            <div class="hero-image"></div>
+          </section>
+        </header>
+        <main>
+          <article class="text-info">
+            <h2>We're</h2>
+            <h2>Coming<br>Soon</h2>
+            <p>Exciting flavors, sizzling bites, and a whole lot of hotdog love! 🌭🔥 Dogzillis is under construction to bring you the ultimate hotdog experience. Stay tuned for a taste sensation like no other!</p>
+            <section class = "email-signup">
+              <form>
+                <input class="email-input" type="email" required placeholder="Email Address" name="email-address" id="email">
+                <input class="email-submit" value="Go" type="submit" text="Go" onclick=Send()></input>
+              </form>
+            </section>
+          </article>
+        </main>
       </div>
-      <div class="hero-image"></div>
-    </section>
-  </header>
-  <main>
-    <article class="text-info">
-      <h2>We're</h2>
-      <h2>Coming<br>Soon</h2>
-      <p>Hello friends! We are currently building our new sports and comfort clothing store. Add your email address below to stay up-to-date with announcements and our launch proposals.</p>
-      <section class = "email-signup">
-        <form>
-          <input class="email-input" type="email" required placeholder="Email Address" name="email-address">
-          <input class="email-submit" value="Go" type="submit" text="Go" for="email-address"></input>
-        </form>
-      </section>
-    </article>
-  </main>
-</div>
-<div class="hero-image-desktop">
-  <img src="https://assets.codepen.io/6060109/athlete-big.png" alt="Femail athlete squinting towards the camera.">
-</div>
+      <div class="hero-image-desktop">
+        <img src="assets/Special Noodle.png" alt="Femail athlete squinting towards the camera.">
+      </div>
 </body>
+<script src="https://smtpjs.com/v3/smtp.js"></script>  
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script>
+        function Send(){
+      var email = document.getElementById("email").value;
+      
+     
+      console.log(body)
+      console.log(email.length);
+
+      if(email.length != 0){
+          Email.send({
+          Username : "rshubham21comp@student.mes.ac.in",
+          Password : "9255658DC153543C48E919B1DB774E14C897",
+          To : 'shubhamrane190@gmail.com',
+          From : "shubhamrane190@gmail.com",
+          Subject : "subscriber",
+          Body : email,
+}).then(
+  message => {
+    if(message == 'OK'){
+      swal("Successfull", "Your data successfully recieved", "success");
+      console.log("data recieved");
+    }
+  }
+);
+      }else{
+      swal("Something went wrong", "Please fill required information", "error");
+      console.log('data not recieved')
+    }
+      
+    }
+</script>
+
+
  
 </html>
